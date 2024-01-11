@@ -1,27 +1,246 @@
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@layer base {
+  :root {
+    --color-bkg: white;
+    --color-content: black;
+    --color-accent1: pink;
+    --color-accent2: blue;
+  }
+
+  @media (prefers-color-scheme: dark) {
+
+    :root {
+      --color-bkg: black;
+      --color-content: white;
+      --color-accent1: pink;
+      --color-accent2: blue;
+    }
+
+  }
+
+  :root[data-theme="dark"] {
+    --color-bkg: black;
+    --color-content: white;
+    --color-accent1: pink;
+    --color-accent2: blue;
+  }
+
+  :root[data-theme="light"] {
+    --color-bkg: white;
+    --color-content: black;
+    --color-accent1: pink;
+    --color-accent2: blue;
+  }
+
+  :root[data-theme="cool"] {
+    --color-bkg: black;
+    --color-content: white;
+    --color-accent1: pink;
+    --color-accent2: blue;
+  }
+
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .page-container {
+    @apply h-[100vh] bg-indigo-900 flex items-center justify-center;
+  }
+
+  .logo-style {
+    @apply h-72 w-72 transition hover:animate-spin cursor-pointer;
+  }
+
+  .title {
+    @apply text-white text-center text-2xl sm:text-5xl;
   }
 }
 
+
+/* Reset some basic elements */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Add a background color and a linear gradient to your body */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #f4f4f4;
+  background-image: linear-gradient(to right, #ddd, #eee);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style the main container */
+div {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 2.5em;
+}
+
+/* Style your table to be more techy and modern */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #007BFF;
+  color: white;
+}
+
+td img {
+  width: 50px;
+  height: auto;
+}
+
+/* Style buttons */
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: calc(100% - 22px);
+  /* Account for padding and border */
+}
+
+/* Add some spacing to your form elements */
+input,
+button {
+  margin-top: 10px;
+}
+
+/* Different color for delete button */
+button.delete {
+  background-color: #FF4136;
+}
+
+button.delete:hover {
+  background-color: #C12D1D;
+}
+
+/* Responsive table */
+@media screen and (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
 }
